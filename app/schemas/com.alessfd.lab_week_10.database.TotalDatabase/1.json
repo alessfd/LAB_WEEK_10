@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "cf616c7e60397a9266165a00f169e777",
+    "identityHash": "019f6a455f12847927c7d2b2c849800d",
     "entities": [
       {
         "tableName": "total",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `total` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `value` INTEGER NOT NULL, `date` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -15,9 +15,15 @@
             "notNull": true
           },
           {
-            "fieldPath": "total",
-            "columnName": "total",
+            "fieldPath": "total.value",
+            "columnName": "value",
             "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "total.date",
+            "columnName": "date",
+            "affinity": "TEXT",
             "notNull": true
           }
         ],
@@ -34,7 +40,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'cf616c7e60397a9266165a00f169e777')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '019f6a455f12847927c7d2b2c849800d')"
     ]
   }
 }
