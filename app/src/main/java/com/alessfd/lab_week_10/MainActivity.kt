@@ -20,13 +20,15 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.text_total).text =
             getString(R.string.text_total, total)
     }
-    private fun prepareViewModel(){
-        viewModel.total.observe(this) { total ->
-            updateText(total)
+    private fun prepareViewModel() {
+        viewModel.total.observe(this) {
+            updateText(it)
         }
+
         findViewById<Button>(R.id.button_increment).setOnClickListener {
             viewModel.incrementTotal()
         }
     }
+
 }
 
